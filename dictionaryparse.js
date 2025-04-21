@@ -1,4 +1,3 @@
-import { SlowBuffer } from "buffer";
 import {readFile, writeFile} from "fs/promises"
 
 async function main() {
@@ -16,7 +15,7 @@ async function main() {
             .filter(term => term != "")
             .map(term => term.trim())
         if (splitDef.length %2 !== 0) {
-            console.warn(`Unexpected split behavior! ${word}`);
+            console.warn(`Unexpected split behavior! ${word}, ${splitDef}`);
         }
         const allDefs = [];
         for (let i = 0; i < splitDef.length ; i += 2) {

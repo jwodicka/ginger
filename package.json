@@ -1,6 +1,12 @@
 {
   "dependencies": {
+    "cytoscape": "^3.31.2",
+    "cytoscape-fcose": "^2.2.0",
+    "http-server": "^14.1.1",
     "pdfjs-dist": "^5.1.91"
+  },
+  "scripts": {
+    "start": "http-server graph"
   },
   "type": "module"
 }

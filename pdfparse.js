@@ -31,16 +31,19 @@ async function parsePdf(doc) {
             const [_a, _b, _c, _d, xOffset, yOffset] = item.transform;
             if (xOffset == "56.25") {
                 if (word != null) {
-                    dictionary[word] = definition;
+                    dictionary[word] = definition.trim();
                 }
                 word = item.str
                 definition = ""
             } else if (xOffset == "124.5") {
-                definition = definition.concat(item.str);
+                definition = definition.concat(" ", item.str);
             } else {
                 console.error(`That's unexpected! ${xOffset}`)
             }
             // console.log(xOffset, yOffset);
+        }
+        if (word != null) {
+          dictionary[word] = definition.trim();
         }
     }
     return dictionary;
